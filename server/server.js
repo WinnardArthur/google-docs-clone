@@ -7,7 +7,7 @@ mongoose.connect('mongodb+srv://JadenXmith:Gibbwizze,.7@cluster0.hr3srcd.mongodb
 
 const io = require('socket.io')(5000, {
     cors: {
-        origin: 'http://localhost:3001',
+        origin: 'google-clone-docs.vercel.app',
         method: ['GET', 'POST']
     },
 })
