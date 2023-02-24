@@ -1,0 +1,16 @@
+{
+  "name": "google-docs-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^6.10.0",
+    "socket.io": "^4.6.1"
+  }
+}
