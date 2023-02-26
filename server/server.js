@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const Document = require('./document');
 const app = require('express');
+const cors = require('cors');
 const port = process.env.PORT || 5000;
+
+app.use(cors());
+
 
 mongoose.connect('mongodb+srv://JadenXmith:Gibbwizze,.7@cluster0.hr3srcd.mongodb.net/?retryWrites=true&w=majority')
     .then(() => console.log('connected'))
@@ -12,7 +16,7 @@ const server = app.listen(port)
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: 'google-clone-docs.vercel.app',
+        origin: 'https://google-clone-docs.vercel.app/',
         method: ['GET', 'POST']
     },
 })
