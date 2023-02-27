@@ -12,6 +12,10 @@ mongoose.connect('mongodb+srv://JadenXmith:Gibbwizze,.7@cluster0.hr3srcd.mongodb
     .catch((err) => console.log(err))
 
 
+app.get("/", (req, res) => {
+    res.send("Google Docs Clone API running successfully")
+})
+
 const server = app.listen(port)
 
 const io = require('socket.io')(server, {
@@ -48,3 +52,5 @@ async function findOrCreateDocument(id) {
 
     return await Document.create({_id: id, data: defaultValue })
 }
+
+module.exports = app;
