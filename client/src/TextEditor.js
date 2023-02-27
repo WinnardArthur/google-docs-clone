@@ -27,7 +27,7 @@ const TextEditor = () => {
 
     // Connect to server
     useEffect(() => {
-        const s = io("https://google-clone-docs-server.vercel.app/");
+        const s = io("https://google-clone-docs-server.vercel.app/", { transports: ['websocket', 'polling', 'flashsocket'] });
         setSocket(s)
 
         return () => {
