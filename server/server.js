@@ -19,7 +19,7 @@ const server = app.listen(port)
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: 'https://google-clone-docs.vercel.app/',
+        origin: 'https://google-docs-clone-4rex.onrender.com/',
         method: ['GET', 'POST']
     },
 })
