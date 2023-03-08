@@ -11,7 +11,6 @@ mongoose.connect('mongodb+srv://JadenXmith:Gibbwizze,.7@cluster0.hr3srcd.mongodb
     .catch((err) => console.log(err))
 
 
-console.log(path.join(__dirname, '../'))
 
 if(process.env.NODE_ENV === 'production') {
     const __dirname = path.resolve();
@@ -32,7 +31,7 @@ const server = app.listen(port)
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: 'https://google-docs-clone-4rex.onrender.com/',
+        origin: 'https://vercel.com/jadenxmith-gmailcom/google-clone-docs/',
         method: ['GET', 'POST']
     },
 })
