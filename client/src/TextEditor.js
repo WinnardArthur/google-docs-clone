@@ -27,7 +27,7 @@ const TextEditor = () => {
 
     // Connect to server
     useEffect(() => {
-        const s = io("https://vercel.com/jadenxmith-gmailcom/google-clone-docs/");
+        const s = io("https://google-docs-clone-pwx3.onrender.com/");
         setSocket(s)
 
         return () => {
