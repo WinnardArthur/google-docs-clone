@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Document = require('./document');
-const cors = require('cors');
 const port = process.env.PORT || 5000;
 const app = express();
+const path = require('path');
 
 
 mongoose.connect('mongodb+srv://JadenXmith:Gibbwizze,.7@cluster0.hr3srcd.mongodb.net/?retryWrites=true&w=majority')
@@ -11,9 +11,22 @@ mongoose.connect('mongodb+srv://JadenXmith:Gibbwizze,.7@cluster0.hr3srcd.mongodb
     .catch((err) => console.log(err))
 
 
-app.get("/", (req, res) => {
-    res.send("Google Docs Clone API running successfully")
-})
+console.log(path.join(__dirname, '../'))
+
+if(process.env.NODE_ENV === 'production') {
+    const __dirname = path.resolve();
+
+    app.use(express.static(path.join(__dirname, "../client/build")))
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "../client/build/index.html"))
+    })
+} else {
+    app.get("/", (req, res) => {
+        res.send("Google Docs Clone API running successfully")
+    })
+}
+
 
 const server = app.listen(port)
 
@@ -51,5 +64,7 @@ async function findOrCreateDocument(id) {
 
     return await Document.create({_id: id, data: defaultValue })
 }
+
+
 
 module.exports = app;

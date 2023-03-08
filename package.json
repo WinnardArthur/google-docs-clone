@@ -1,0 +1,14 @@
+{
+  "name": "google-docs-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/server.js",
+    "start": "node server/server.js",
+    "build": "cd server && npm install && cd client && install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
