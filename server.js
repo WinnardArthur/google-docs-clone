@@ -28,10 +28,12 @@ if(process.env.NODE_ENV === 'production') {
 
 
 const server = app.listen(port)
+const baseURL = process.env.NODE_ENV === 'production' ? 'https://google-docs-clone-pwx3.onrender.com/' : 'http://localhost:3000'
+
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: 'https://google-docs-clone-pwx3.onrender.com/',
+        origin: baseURL,
         method: ['GET', 'POST']
     },
 })

@@ -7,6 +7,8 @@ import { useParams } from 'react-router-dom';
 
 const SAVE_INTERVAL_MS = 2000;  
 
+const baseURL = process.env.NODE_ENV === 'production' ? 'https://google-docs-clone-pwx3.onrender.com/' : 'http://localhost:5000'
+
 const TOOLBAR_OPTIONS = [
     [{header: [1, 2, 3, 4, 5, 6, false]}],
     [{ font: [] }],
@@ -27,7 +29,7 @@ const TextEditor = () => {
 
     // Connect to server
     useEffect(() => {
-        const s = io("https://google-docs-clone-pwx3.onrender.com/");
+        const s = io(baseURL);
         setSocket(s)
 
         return () => {
